@@ -1,9 +1,7 @@
 package kr.ac.dit.persistence;
-import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import kr.ac.dit.domain.BoardVO;
 import kr.ac.dit.domain.LogonDTO;
 import kr.ac.dit.domain.MemberVO;
 @Repository
@@ -17,13 +15,5 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public MemberVO select(LogonDTO logonDTO) throws Exception {
 		return sqlSession.selectOne("MemberMapper.select", logonDTO); 
-	}
-	@Override
-	public void update(MemberVO memberVO) throws Exception {
-		sqlSession.update("MemberMapper.update", memberVO);
-	}
-	@Override
-	public void delete(LogonDTO logonDTO) throws Exception {
-		sqlSession.delete("MemberMapper.delete", logonDTO); 
 	}
 }

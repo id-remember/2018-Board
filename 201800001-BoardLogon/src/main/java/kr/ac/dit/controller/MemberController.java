@@ -22,27 +22,13 @@ public class MemberController {
 		memberService.createMember(memberVO);
 		return "redirect:/board/list";
 	}
-	@RequestMapping(value = "/update", method = RequestMethod.GET)
-	public void updateGET(@ModelAttribute("logonDTO") LogonDTO logonDTO, Model model) throws Exception {
-		model.addAttribute(memberService.readMember(logonDTO));
-	}
-	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String updatePOST(MemberVO memberVO) throws Exception {
-		memberService.updateMember(memberVO);
-		return "redirect:/board/list";
-	}
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-	public String deleteGET(LogonDTO logonDTO) throws Exception {
-		memberService.deleteMember(logonDTO);
-		return "redirect:/board/list";
-	}
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public void loginGET(@ModelAttribute("logonDTO") LogonDTO logonDTO) {
 	}
-	@RequestMapping(value = "/loginPost", method = RequestMethod.POST)
+	@RequestMapping(value = "/loginPOST", method = RequestMethod.POST)
 	public String loginPOST(LogonDTO logonDTO, HttpSession httpSession, Model model) throws Exception {
 		MemberVO memberVO = memberService.readMember(logonDTO);
-		if (memberVO==null) { return "logonError"; }
+		if (memberVO==null) { return "/member/login"; }
 		model.addAttribute("memberVO", memberVO);
 		return "redirect:/board/list";
 	}

@@ -4,6 +4,4 @@ import kr.ac.dit.domain.MemberVO;
 public interface MemberService {
 	public void createMember(MemberVO memberVO) throws Exception;
 	public MemberVO readMember(LogonDTO logonDTO) throws Exception;
-	public void updateMember(MemberVO memberVO) throws Exception;
-	public void deleteMember(LogonDTO logonDTO) throws Exception;
 }

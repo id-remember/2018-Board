@@ -24,20 +24,14 @@
 	<context:component-scan base-package="kr.ac.dit" />
 	
 	<beans:bean id="loginInterceptor" class="kr.ac.dit.logon.LoginInterceptor"></beans:bean>
+	<beans:bean id="authInterceptor" class="kr.ac.dit.logon.AuthInterceptor"></beans:bean>
 	<interceptors>
 		<interceptor>
 			<mapping path="/member/loginPost"/>
 			<beans:ref bean="loginInterceptor"/>
 		</interceptor>
-	</interceptors>
-	
-	<beans:bean id="authInterceptor" class="kr.ac.dit.logon.AuthInterceptor"></beans:bean>
-	<interceptors>
 		<interceptor>
 			<mapping path="/board/create"/>
-			<mapping path="/board/read"/>
-			<mapping path="/board/update"/>
-			<mapping path="/board/delete"/>
 			<beans:ref bean="authInterceptor"/>
 		</interceptor>
 	</interceptors>
