@@ -8,5 +8,6 @@
 			<input type="password" name="pwd" size="50">
 			<input type="submit">
 		</form>
+		<br><a href="/member/create">REGISTER</a>
 	</body>
 </html>
