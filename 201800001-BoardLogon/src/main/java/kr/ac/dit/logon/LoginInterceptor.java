@@ -10,7 +10,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
 			Object handler) throws Exception {
 		HttpSession httpSession = httpServletRequest.getSession();
-		if(httpSession.getAttribute("login")!=null) {
+		if(httpSession.getAttribute("login")==null) {
 			httpSession.removeAttribute("login");
 		}
 		return true;
@@ -23,7 +23,9 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		Object memberVO = modelMap.get("memberVO");
 		if (memberVO != null) {
 			httpSession.setAttribute("login", memberVO);
-			httpServletResponse.sendRedirect("/");
+			Object saveDirect = httpSession.getAttribute("saveDirect");
+			System.out.println(saveDirect != null ? saveDirect : "Null");
+			httpServletResponse.sendRedirect(saveDirect != null ? (String)saveDirect:"/");
 		}
 	}
 }
