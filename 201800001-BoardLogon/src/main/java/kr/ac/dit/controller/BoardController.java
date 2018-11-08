@@ -18,7 +18,7 @@ public class BoardController {
 	@RequestMapping(value = "/board/create", method = RequestMethod.GET)
 	public void createGET() throws Exception {
 	}
-	@RequestMapping(value = "/board/createPOST", method = RequestMethod.POST)
+	@RequestMapping(value = "/board/createPost", method = RequestMethod.POST)
 	public String createPOST(BoardVO boardVO) throws Exception {
 		boardService.createArticle(boardVO);
 		return "redirect:/board/list";

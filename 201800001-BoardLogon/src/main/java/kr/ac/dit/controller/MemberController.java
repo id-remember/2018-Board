@@ -24,7 +24,7 @@ public class MemberController {
 	@RequestMapping(value = "/member/login", method = RequestMethod.GET)
 	public void loginGET(@ModelAttribute("logonDTO") LogonDTO logonDTO) {
 	}
-	@RequestMapping(value = "/member/loginPOST", method = RequestMethod.POST)
+	@RequestMapping(value = "/member/loginPost", method = RequestMethod.POST)
 	public void loginPOST(LogonDTO logonDTO, HttpSession httpSession, Model model) throws Exception {
 		MemberVO memberVO = memberService.readMember(logonDTO);
 		if (memberVO==null) { return; }
