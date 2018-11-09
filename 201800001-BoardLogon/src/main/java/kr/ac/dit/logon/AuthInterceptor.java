@@ -17,7 +17,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 				uri += "?" + query;
 			}
 			if (httpServletRequest.getMethod().equals("GET")) {
-				httpSession.setAttribute("saveDirect", uri + query);
+				httpSession.setAttribute("saveDirect", uri);
 			}
 			httpServletResponse.sendRedirect("/member/login");
 			return false;

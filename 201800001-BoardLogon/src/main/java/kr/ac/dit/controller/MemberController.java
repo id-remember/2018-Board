@@ -31,4 +31,11 @@ public class MemberController {
 		if (memberVO==null) { return; }
 		model.addAttribute("memberVO", memberVO);
 	}
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public void logout(HttpSession httpSession) {
+		if (httpSession.getAttribute("login") != null) {
+			httpSession.removeAttribute("login");
+			httpSession.invalidate();
+		}
+	}
 }
