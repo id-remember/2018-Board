@@ -24,7 +24,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 		if (memberVO != null) {
 			httpSession.setAttribute("login", memberVO);
 			Object saveDirect = httpSession.getAttribute("saveDirect");
-			System.out.println(saveDirect != null ? saveDirect : "Null");
 			httpServletResponse.sendRedirect(saveDirect != null ? (String)saveDirect:"/");
 		}
 	}

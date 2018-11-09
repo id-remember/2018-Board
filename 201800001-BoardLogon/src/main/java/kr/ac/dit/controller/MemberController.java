@@ -10,21 +10,22 @@ import kr.ac.dit.domain.LogonDTO;
 import kr.ac.dit.domain.MemberVO;
 import kr.ac.dit.service.MemberService;
 @Controller
+@RequestMapping("/member")
 public class MemberController {
 	@Autowired
 	private MemberService memberService;
-	@RequestMapping(value = "/member/create", method = RequestMethod.GET)
+	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public void createGET() throws Exception {
 	}
-	@RequestMapping(value = "/member/create", method = RequestMethod.POST)
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public String createPOST(MemberVO memberVO) throws Exception {
 		memberService.createMember(memberVO);
 		return "redirect:/board/list";
 	}
-	@RequestMapping(value = "/member/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public void loginGET(@ModelAttribute("logonDTO") LogonDTO logonDTO) {
 	}
-	@RequestMapping(value = "/member/loginPost", method = RequestMethod.POST)
+	@RequestMapping(value = "/loginPost", method = RequestMethod.POST)
 	public void loginPOST(LogonDTO logonDTO, HttpSession httpSession, Model model) throws Exception {
 		MemberVO memberVO = memberService.readMember(logonDTO);
 		if (memberVO==null) { return; }

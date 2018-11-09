@@ -1,3 +1,5 @@
+<!DOCTYPE=HTML>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -35,6 +37,6 @@
 		</div>
     <!-- Bootstrap -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="resources/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+    <script src="../../../resources/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
 	</body>
 </html>
