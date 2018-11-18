@@ -11,8 +11,14 @@
 	<insert id="insert">
 		insert into board (no, writer, title, content, createDate) values (board_seq.nextval, #{writer}, #{title}, #{content}, SYSDATE)
 	</insert>
+	<insert id="insertAttachFile">
+		insert into attach_file (file_name, no) values (#{fileName}, board_seq.currval)
+	</insert>
 	<select id="select" resultType="kr.ac.dit.domain.BoardVO">
 		select * from board where no = #{no}
+	</select>
+	<select id="selectAttachFile" resultType="string">
+		select file_name from attach_file where no = #{no}
 	</select>
 	<update id="update">
 		update board set title = #{title}, content = #{content} where no = #{no}

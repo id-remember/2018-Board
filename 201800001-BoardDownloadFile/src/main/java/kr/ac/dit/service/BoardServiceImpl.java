@@ -1,7 +1,8 @@
 package kr.ac.dit.service;
-import java.util.*;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import kr.ac.dit.domain.BoardVO;
 import kr.ac.dit.persistence.BoardDAO;
 @Service
@@ -13,6 +14,13 @@ public class BoardServiceImpl implements BoardService {
 	}
 	public void createArticle(BoardVO boardVO) throws Exception {
 		boardDAO.insert(boardVO);
+		MultipartFile[] uploadFile = boardVO.getUploadFile();
+		if (uploadFile != null) {
+			for (MultipartFile eachFile : uploadFile) {
+				String fileName = eachFile.getOriginalFilename();
+				boardDAO.insertAttachFile(fileName);
+			}
+		}
 	}
 	public BoardVO readArticle(int no) throws Exception {
 		return boardDAO.select(no);
