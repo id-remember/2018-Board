@@ -6,6 +6,7 @@ public interface BoardService {
 	public List<BoardVO> listArticle() throws Exception;
 	public void createArticle(BoardVO boardVO) throws Exception;
 	public BoardVO readArticle(int no) throws Exception;
+	public List<String> readAttachFile(int no) throws Exception;
 	public void updateArticle(BoardVO boardVO) throws Exception;
 	public void deleteArticle(int no) throws Exception;
 }

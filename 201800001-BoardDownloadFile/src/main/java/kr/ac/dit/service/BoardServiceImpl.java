@@ -25,6 +25,9 @@ public class BoardServiceImpl implements BoardService {
 	public BoardVO readArticle(int no) throws Exception {
 		return boardDAO.select(no);
 	}
+	public List<String> readAttachFile(int no) throws Exception {
+		return boardDAO.selectAttachFile(no);
+	}
 	public void updateArticle(BoardVO boardVO) throws Exception {
 		boardDAO.update(boardVO);
 	}
