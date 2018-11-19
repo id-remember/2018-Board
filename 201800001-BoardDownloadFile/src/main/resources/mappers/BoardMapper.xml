@@ -18,7 +18,9 @@
 		select * from board where no = #{no}
 	</select>
 	<select id="selectAttachFile" resultType="string">
+		<![CDATA[
 		select file_name from attach_file where no = #{no}
+		]]>
 	</select>
 	<update id="update">
 		update board set title = #{title}, content = #{content} where no = #{no}

@@ -8,8 +8,8 @@
 		${boardVO.writer}<br>
 		${boardVO.title}<br>
 		${boardVO.content}<br>
-		<c:forEach  var="item" items="${attachVO}">
-			<a href="/board/download?=${item.fileName}">${item.fileName}</a>
+		<c:forEach  var="item" items="${items}">
+			<a href="/download?fileName=${item}">${item}</a>
 		</c:forEach>
 		<br>
 		<a href='<c:url value="/board/list"/>'>LIST</a>|

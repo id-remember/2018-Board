@@ -1,5 +1,5 @@
 package kr.ac.dit.persistence;
-import java.util.*;
+import java.util.List;
 import kr.ac.dit.domain.BoardVO;
 public interface BoardDAO {
 	public List<BoardVO> selectList() throws Exception;

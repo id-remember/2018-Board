@@ -22,6 +22,7 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 	@Override
 	public List<String> selectAttachFile(int no) throws Exception {
+		System.out.println(sqlSession.selectList("BoardMapper.selectAttachFile", no));
 		return sqlSession.selectList("BoardMapper.selectAttachFile", no);
 	}
 	@Override

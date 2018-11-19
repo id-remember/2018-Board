@@ -1,6 +1,5 @@
 package kr.ac.dit.service;
 import java.util.List;
-
 import kr.ac.dit.domain.BoardVO;
 public interface BoardService {
 	public List<BoardVO> listArticle() throws Exception;
