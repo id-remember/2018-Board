@@ -28,9 +28,9 @@ public class BoardController {
 		httpSession.setAttribute("page", page);
 		List<BoardVO> boardList = boardService.listArticle(page);
 		model.addAttribute("items", boardList);
-		int totalCount = boardService.selectTotalArticleCount();
+		int totalCount = boardService.selectTotalArticleCount(); // 전체 게시물 개수
 		int totalPage = 0;
-		if (totalCount>0) totalPage = (int)Math.ceil(totalCount/10.0);
+		if (totalCount>0) totalPage = (int)Math.ceil(totalCount/10.0); // 전체 페이지 개수
 		model.addAttribute("totalPageCount", totalPage);
 		model.addAttribute("page", page);
 	}

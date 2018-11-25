@@ -1,7 +1,7 @@
 <!DOCTYPE=HTML>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="jk" tagdir="/WEB-INF/tags"%>
+<%@taglib prefix="jk" tagdir="/WEB-INF/tags"%>
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -25,8 +25,10 @@
 				<th>조회수</th>
 			</tr>
 		</thead>
+		<c:set var="seq" value="${(page-1)*10}" scope="page"/>
 		<c:forEach var="item" items="${items}">
 			<tr>
+				<c:set var="seq" value="${seq+1}" scope="page"/>
 				<td>${item.no}</td>
 				<td>${item.writer}
 				<td><a href='<c:url value="/board/read?no=${item.no}"/>'>${item.title}</a></td>

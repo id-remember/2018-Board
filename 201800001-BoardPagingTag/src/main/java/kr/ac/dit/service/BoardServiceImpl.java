@@ -10,7 +10,7 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private BoardDAO boardDAO;
 	public List<BoardVO> listArticle(int page) throws Exception {
-		int start = (page - 1) * 10;
+		int start = (page - 1) * 10; // 페이징 의 조건절에 사용되는 시작 rownum
 		return boardDAO.selectList(start, start+10);
 	}
 	public void createArticle(BoardVO boardVO) throws Exception {
