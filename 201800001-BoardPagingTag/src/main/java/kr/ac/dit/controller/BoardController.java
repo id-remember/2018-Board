@@ -23,8 +23,8 @@ import kr.ac.dit.service.BoardService;
 public class BoardController {
 	@Autowired
 	private BoardService boardService;
-	@RequestMapping("/board/list/${page}")
-	public void listGET(@PathVariable int page, Model model, HttpSession httpSession) throws Exception {
+	@RequestMapping("/board/list/{page}")
+	public String listGET(@PathVariable int page, Model model, HttpSession httpSession) throws Exception {
 		httpSession.setAttribute("page", page);
 		List<BoardVO> boardList = boardService.listArticle(page);
 		model.addAttribute("items", boardList);
@@ -33,6 +33,7 @@ public class BoardController {
 		if (totalCount>0) totalPage = (int)Math.ceil(totalCount/10.0); // 전체 페이지 개수
 		model.addAttribute("totalPageCount", totalPage);
 		model.addAttribute("page", page);
+		return "/board/list";
 	}
 	@RequestMapping(value = "/board/create", method = RequestMethod.GET)
 	public void createGET() throws Exception {

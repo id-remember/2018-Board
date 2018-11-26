@@ -24,7 +24,7 @@ out.println("<nav aria-label=\"Page navigation\">");
 out.println("<ul class=\"pagination\">");
 if(nowPageBlock>1) {
 	out.print("<li>");
-	out.print("<a href=\"" + contextPath + "/board/" + (startPage-1) + "\" aria-label=\"Previous\">");
+	out.print("<a href=\"" + contextPath + "/board/list/" + (startPage-1) + "\" aria-label=\"Previous\">");
 	out.print("◀</a>");
 	out.println("</li>");
 }
@@ -35,14 +35,14 @@ for(int i=startPage; i<=endPage; i++) {
 	}else {
 		out.print("<li>");
 	}
-	out.print("<a href=\"" + contextPath + "/board/" + (i) + "\">");
+	out.print("<a href=\"" + contextPath + "/board/list/" + (i) + "\">");
 	out.print(i);
 	out.print("</a>");		
 	out.println("</li>");
 } 
 if(nowPageBlock<totalPageBlock) {
 	out.print("<li>");
-	out.print("<a href=\"" + contextPath + "/board/" + (endPage+1) + "\" aria-label=\"Next\">");
+	out.print("<a href=\"" + contextPath + "/board/list/" + (endPage+1) + "\" aria-label=\"Next\">");
 	out.print("▶</a>");
 	out.println("</li>");
 }

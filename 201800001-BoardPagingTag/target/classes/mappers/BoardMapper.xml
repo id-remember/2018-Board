@@ -15,7 +15,7 @@
 			select no, writer, title, content, createDate, readCount, ROWNUM as RNUM
 			from (
 				select * from board
-				order by no desc, createDate desc
+				order by no desc
 			)
 		)
 		where RNUM between #{start} and #{end}
